@@ -1,29 +1,27 @@
-# README #
+# Introduction #
+Apache server with PHP, MySql & PhpMyadmin configured build on <b>Docker</b>
 
-This README would normally document whatever steps are necessary to get your application up and running.
+# Feature #
+* Apache 2.4.38
+* PHP 7.4.5
+* MySql 8.0.20
+* PhpMyadmin
+* Bootstrap 4.4.1
+* JQuery 3.4.1
+* Redis 5.2.2
+* imagick 3.4.4
+* NPM package manager
+* COMPOSER package manager
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Dev Team who wants a common, stable & similar version of Development Environment for both Development and Production.
 
-### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+### Installation Process... ###
+* Install Docker (https://docs.docker.com/engine/install/). Make sure to fill up the System Requirements to install Docker
+* Clone or Downlod the project
+* Make sure your working directory has all <b>Read, Write & Execute Permissions</b>. 
+* RUN "<b>docker-compose up</b>" to make the docker build and run the server
+* or RUN "<b>docker-compose up -d</b>" to run the server on the detached mode
+* (optional) Chane the environment varialbe(.env) you required
