@@ -1,0 +1,17 @@
+{
+  "name": "sc",
+  "version": "1.0.0",
+  "description": "Secure Communication",
+  "main": "index.php",
+  "dependencies": {
+    "popper.js": "^2.0.0-next.2",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Saiful & Najnin",
+  "license": "ISC"
+}

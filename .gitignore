@@ -1,0 +1,6 @@
+/vendor/
+/node_modules
+/logs/apache2/
+/logs/mysql/
+.idea/
+/data/

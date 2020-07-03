@@ -1,0 +1,16 @@
+{
+    "name": "root/sc",
+    "description": "An anonymous and secure communication system",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Saiful Islam",
+            "email": "saif29oct@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "ext-mysqli": "*"
+    }
+}
