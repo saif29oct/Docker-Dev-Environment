@@ -24,4 +24,4 @@ Apache server with PHP, MySql & PhpMyadmin configured build on <b>Docker</b>
 * Make sure your working directory has all <b>Read, Write & Execute Permissions</b>. 
 * RUN "<b>docker-compose up</b>" to make the docker build and run the server
 * or RUN "<b>docker-compose up -d</b>" to run the server on the detached mode
-* (optional) Chane the environment varialbe(.env) you required
+* (optional) Change the environment varialbe(.env) you required
