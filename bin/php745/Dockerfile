@@ -49,6 +49,7 @@ RUN apt-get install -y nodejs
 
 # Install & Configure Composer
 COPY composer.phar /usr/local/bin/composer
+RUN chmod 755 /usr/local/bin/composer
 
 # Other PHP7 Extensions
 RUN docker-php-ext-install pdo_mysql && \
