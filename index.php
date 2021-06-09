@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="Eng">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Testing & Production Environment with pipepline</title>
-<!--        <link rel="stylesheet" href="./assets/css/bulma.min.css">-->
+        <title>LAMP STACK</title>
+        <link rel="stylesheet" href="/assets/css/bulma.min.css">
     </head>
     <body>
         <section class="hero is-medium is-info is-bold">
             <div class="hero-body">
                 <div class="container has-text-centered">
+                    <h1 class="title">
+                        LAMP STACK
+                    </h1>
                     <h2 class="subtitle">
-                        Local development environment
+                        Your local development environment
                     </h2>
                 </div>
             </div>
@@ -20,13 +23,12 @@
             <div class="container">
                 <div class="columns">
                     <div class="column">
+                        <h3 class="title is-3 has-text-centered">Environment</h3>
                         <hr>
                         <div class="content">
                             <ul>
                                 <li><?= apache_get_version(); ?></li>
                                 <li>PHP <?= phpversion(); ?></li>
-				<li>Redis <?= phpversion('redis'); ?></li>
-				<li> imagick <?= phpversion('imagick') ; ?></li>
                                 <li>
                                     <?php
                                     $link = mysqli_connect("database", "root", "tiger", null);
@@ -50,10 +52,10 @@
                         <hr>
                         <div class="content">
                             <ul>
-                                <li><a href="http://localhost/test/phpinfo.php">phpinfo()</a></li>
-                                <li><a href="http://localhost:8080">phpMyAdmin</a></li>
-                                <li><a href="http://localhost/test/test_db.php">Test DB Connection with mysqli</a></li>
-                                <li><a href="http://localhost/test/test_db_pdo.php">Test DB Connection with PDO</a></li>
+                                <li><a href="/phpinfo.php">phpinfo()</a></li>
+                                <li><a href="http://localhost:<? print $_ENV['PMA_PORT']; ?>">phpMyAdmin</a></li>
+                                <li><a href="/test_db.php">Test DB Connection with mysqli</a></li>
+                                <li><a href="/test_db_pdo.php">Test DB Connection with PDO</a></li>
                             </ul>
                         </div>
                     </div>
@@ -62,3 +64,28 @@
         </section>
     </body>
 </html>
+<?php
+include "./vendor/autoload.php";
+use Redislabs\Module\ReJSON\ReJSON;
+$redisClient = new Redis();
+$redisClient->connect('redis','6379');
+$reJSON = ReJSON::createWithPhpRedis($redisClient);
+$reJSON->set('test', '.', ['foo'=>'bar'], 'NX');
+$reJSON->set('test', '.baz', 'qux');
+$reJSON->set('test', '.baz', 'quux', 'XX');
+$reJSON->set('test2', '.', ['foo2'=>'bar2']);
+$baz = $reJSON->get('test', '.baz');
+
+var_dump($baz);
+?>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+
+<script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+   <script>
+    //  const socket = io();
+    const socketio =  io.connect('http://localhost:3000');
+   </script>
+

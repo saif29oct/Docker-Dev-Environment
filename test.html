@@ -1,0 +1,15 @@
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="/node_modules/socket.io/client-dist/socket.io.js"></script>
+    <script type="text/javascript" async>
+        $(document).ready(function () {
+                let socket = io.connect('172.19.0.2:8001', {
+                reconnection: false
+            });
+            $.data(document, 'socket', socket);
+            console.log('socket1',socket);
+        });
+</script>
+
