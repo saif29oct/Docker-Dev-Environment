@@ -19,7 +19,7 @@ services:
       - ${LOG_DIR-./logs/apache2}:/var/log/apache2
     environment:
       PMA_PORT: ${HOST_MACHINE_PMA_PORT}
-      # command: bash -c  "node server.js &"
+      command: bash -c  "npm install & composer install"
   database:
     build:
       context: "./bin/${DATABASE}"
