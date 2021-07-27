@@ -1,0 +1,25 @@
+version: "3"
+services:
+    nodeserver:
+        build:
+            context: ./bin/server/
+        container_name: 'backend-node'
+        restart: 'always'
+        volumes:
+            - ${DOCUMENT_ROOT_NODE-.}:/app
+        links: 
+            - reactserver
+        ports:
+            - "127.0.0.1:${HOST_MACHINE_NODE_PORT}:5000"
+        #    - "127.0.0.1:${HOST_MACHINE_REACT_PORT}:3000"
+        command: bash -c "npm install -g npm@7.19.1 && npm install && npm start"
+    reactserver:
+        build:
+            context: ./bin/client/
+        container_name: 'react-node'
+        restart: 'always'
+        volumes:
+            - ${DOCUMENT_ROOT_REACT-.}:/app
+        ports:
+            - "127.0.0.1:${HOST_MACHINE_REACT_PORT}:3000"
+        command: bash -c "npm install -g npm@7.19.1 && npm install && npm start"

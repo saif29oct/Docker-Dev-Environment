@@ -1,0 +1,3 @@
+FROM node:16.4.1
+WORKDIR /app
+EXPOSE 5000
